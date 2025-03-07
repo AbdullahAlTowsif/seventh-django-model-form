@@ -10,7 +10,8 @@
     {% load crispy_forms_tags %}
     <h1>Hello, world!</h1>
     <div style="width: 50%; margin: auto">
-        <form action="">
+        <form action="" method="post">
+            {% csrf_token %}
             {{form|crispy}}
             {% comment %} <button class="btn btn-primary" type="submit">Submit</button> {% endcomment %}
              <input class="btn btn-primary" type="submit" value="Submit">
