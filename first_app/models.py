@@ -10,3 +10,23 @@ class StudentModel(models.Model):
     
     def __str__(self):
         return f"Name: {self.name}"
+
+# Model Inheritance
+# 1. abstract base class
+# 2. multitable inheritance
+# 3. proxy model
+
+# 1. abstract base class
+class CommonInfo(models.Model):
+    name = models.CharField(max_length=20)
+    city = models.CharField(max_length=20)
+    class Meta:
+        abstract = True
+
+class StudentInfoModel(CommonInfo):
+    roll = models.IntegerField()
+    payment = models.IntegerField()
+    section = models.CharField(max_length=20)
+    
+class TeacherInfoModel(CommonInfo):
+    salary = models.IntegerField()
