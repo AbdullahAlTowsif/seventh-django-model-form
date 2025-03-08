@@ -53,6 +53,7 @@ class Me(Friend):
         proxy = True
         ordering = ['id']
 
+# one to one realationship
 class Person(models.Model):
     name = models.CharField(max_length=30)
     city = models.CharField(max_length=50)
@@ -65,3 +66,9 @@ class Passport(models.Model):
     pass_number = models.IntegerField()
     page = models.IntegerField()
     validity = models.IntegerField()
+
+# many to one relationship | one to many relationship
+class Post(models.Model):
+    user = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True)
+    post_caption = models.CharField(max_length=30)
+    post_deatils = models.CharField(max_length=100)
